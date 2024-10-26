@@ -1,0 +1,40 @@
+{
+    "version": "2",
+    "services": {
+        "db": {
+            "image": "postgres:latest",
+            "container_name": "db",
+            "environment": {
+                "POSTGRES_PASSWORD": "test_pass",
+                "POSTGRES_USER": "test_user",
+                "POSTGRES_DB": "test_db"
+            },
+            "ports": [
+                "5432:5432"
+            ],
+            "volumes": [
+                "db-data:/var/lib/postgresql/data"
+            ]
+        }
+    },
+    "volumes": {
+        "db-data": {}
+    },
+    "dependencies": {
+        "@nestjs/swagger": "^7.4.2",
+        "@nestjs/typeorm": "^10.0.2",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.14.1",
+        "pg": "^8.13.0",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1",
+        "typeorm": "^0.3.20"
+    },
+    "scripts": {
+        "start": "nest start",
+        "start:dev": "nest start --watch"
+    },
+    "devDependencies": {
+        "typescript": "^5.6.2"
+    }
+}
